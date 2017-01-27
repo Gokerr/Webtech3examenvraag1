@@ -86,7 +86,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:PatientIngevenSoapBinding" name="PatientIngeven">
 
-         <wsdlsoap:address location="http://localhost:6896/Webtech3examenvraag1/services/PatientIngeven"/>
+         <wsdlsoap:address location="http://localhost:8080/Webtech3examenvraag1/services/PatientIngeven"/>
 
       </wsdl:port>
 
