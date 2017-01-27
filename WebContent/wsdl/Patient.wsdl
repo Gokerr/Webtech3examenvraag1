@@ -4,53 +4,53 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://patient" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="Patient">
+   <element name="addpatient">
     <complexType>
      <sequence>
       <element name="datumuur" type="xsd:string"/>
       <element name="naampatient" type="xsd:string"/>
-      <element name="naamverpleegkundige" type="xsd:string"/>
-      <element name="geboortedatum" type="xsd:string"/>
-      <element name="Alergien" type="xsd:string"/>
-      <element name="diagnose" type="xsd:string"/>
+      <element name="naamVerpleegster" type="xsd:string"/>
+      <element name="geboortedatumn" type="xsd:string"/>
+      <element name="Allergien" type="xsd:string"/>
+      <element name="Diagnose" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="PatientResponse">
+   <element name="addpatientResponse">
     <complexType>
      <sequence>
-      <element name="PatientReturn" type="xsd:string"/>
+      <element name="addpatientReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="PatientResponse">
+   <wsdl:message name="addpatientRequest">
 
-      <wsdl:part element="impl:PatientResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="PatientRequest">
-
-      <wsdl:part element="impl:Patient" name="parameters">
+      <wsdl:part element="impl:addpatient" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:portType name="PatientIngeven">
+   <wsdl:message name="addpatientResponse">
 
-      <wsdl:operation name="Patient">
+      <wsdl:part element="impl:addpatientResponse" name="parameters">
 
-         <wsdl:input message="impl:PatientRequest" name="PatientRequest">
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Patient">
+
+      <wsdl:operation name="addpatient">
+
+         <wsdl:input message="impl:addpatientRequest" name="addpatientRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:PatientResponse" name="PatientResponse">
+         <wsdl:output message="impl:addpatientResponse" name="addpatientResponse">
 
        </wsdl:output>
 
@@ -58,21 +58,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:portType>
 
-   <wsdl:binding name="PatientIngevenSoapBinding" type="impl:PatientIngeven">
+   <wsdl:binding name="PatientSoapBinding" type="impl:Patient">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="Patient">
+      <wsdl:operation name="addpatient">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="PatientRequest">
+         <wsdl:input name="addpatientRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="PatientResponse">
+         <wsdl:output name="addpatientResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -82,11 +82,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:binding>
 
-   <wsdl:service name="PatientIngevenService">
+   <wsdl:service name="PatientService">
 
-      <wsdl:port binding="impl:PatientIngevenSoapBinding" name="PatientIngeven">
+      <wsdl:port binding="impl:PatientSoapBinding" name="Patient">
 
-         <wsdlsoap:address location="http://localhost:8080/Webtech3examenvraag1/services/PatientIngeven"/>
+         <wsdlsoap:address location="http://localhost:8080/Webtech3examenvraag1/services/Patient"/>
 
       </wsdl:port>
 

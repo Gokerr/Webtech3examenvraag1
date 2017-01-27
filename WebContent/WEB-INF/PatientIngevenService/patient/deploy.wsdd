@@ -2,23 +2,14 @@
 
   <!-- Services from PatientIngevenService WSDL service -->
 
-  <service name="PatientIngeven" provider="java:RPC" style="wrapped" use="literal">
+  <service name="PatientIngeven" provider="java:RPC" style="document" use="encoded">
       <parameter name="wsdlTargetNamespace" value="http://patient"/>
       <parameter name="wsdlServiceElement" value="PatientIngevenService"/>
-      <parameter name="schemaQualified" value="http://patient"/>
       <parameter name="wsdlServicePort" value="PatientIngeven"/>
       <parameter name="className" value="patient.PatientIngeven"/>
       <parameter name="wsdlPortType" value="PatientIngeven"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://patient" xmlns:retNS="http://patient" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="patient" qname="operNS:Patient" returnQName="retNS:PatientReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:datumuur" type="tns:string"/>
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:naampatient" type="tns:string"/>
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:naamverpleegkundige" type="tns:string"/>
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:geboortedatum" type="tns:string"/>
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Alergien" type="tns:string"/>
-        <parameter xmlns:pns="http://patient" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:diagnose" type="tns:string"/>
-      </operation>
-      <parameter name="allowedMethods" value="patient"/>
+      <parameter name="allowedMethods" value="*"/>
 
   </service>
 </deployment>
