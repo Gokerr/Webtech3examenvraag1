@@ -1,0 +1,34 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PatientIngevenService WSDL service -->
+
+  <service name="PatientIngeven" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://patient"/>
+      <parameter name="wsdlServiceElement" value="PatientIngevenService"/>
+      <parameter name="schemaQualified" value="http://patient"/>
+      <parameter name="wsdlServicePort" value="PatientIngeven"/>
+      <parameter name="className" value="patient.PatientIngevenSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="PatientIngeven"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="patient" qname="operNS:Patient" xmlns:operNS="http://patient" returnQName="retNS:PatientReturn" xmlns:retNS="http://patient" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:datumuur" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:naampatient" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:naamverpleegkundige" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:geboortedatum" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Alergien" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:diagnose" xmlns:pns="http://patient" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="patient"/>
+
+  </service>
+</deployment>
